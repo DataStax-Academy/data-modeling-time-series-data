@@ -1,7 +1,7 @@
 <!-- TOP -->
 <div class="top">
   <img src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-logo.svg" />
-  <span class="scenario-title">Digital Library Data Modeling</span>
+  <span class="scenario-title">Time Series Data Modeling</span>
   <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span> 
 </div>
 
