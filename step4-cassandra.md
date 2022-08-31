@@ -18,7 +18,7 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Insert rows using the CQL shell</div>
+<div class="step-title">Start the CQL shell</div>
 
 ✅ Start the CQL shell:
 ```
