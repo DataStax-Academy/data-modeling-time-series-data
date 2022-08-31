@@ -22,9 +22,9 @@
         <br/>
         <div class="scenario-objectives">In this scenario, you explored:</div>
         <ul>
-              <li><span class="scenario-objective">Schema design for a digital library use case</span></li>
-              <li><span class="scenario-objective">Sample digital library data</span></li>
-              <li><span class="scenario-objective">CQL queries over digital library data</span></li>
+              <li><span class="scenario-objective">Schema design for a time series use case</span></li>
+              <li><span class="scenario-objective">Sample time series data</span></li>
+              <li><span class="scenario-objective">CQL queries over time series data</span></li>
         </ul>
         <div class="resources">Learn more about Cassandra on <a href="https://datastax.com/dev" target="_blank">datastax.com/dev</a>:</div>
         <ul>
