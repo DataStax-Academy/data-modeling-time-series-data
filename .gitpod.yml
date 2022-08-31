@@ -8,8 +8,8 @@ tasks:
     init: |
       docker pull cassandra:4.0
       pip install -U cqlsh
-      tar -xzf assets/music_data.tar.gz --directory assets/
-      rm assets/music_data.tar.gz 
+      tar -xzf assets/time_series_data.tar.gz --directory assets/
+      rm assets/time_series_data.tar.gz
       wget -q https://downloads.datastax.com/dsbulk/dsbulk.tar.gz
       tar -xzf dsbulk.tar.gz
       rm dsbulk.tar.gz
