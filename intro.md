@@ -11,17 +11,17 @@
     <div class="container px-4 py-2">
      <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
       <div class="feature col div-choice">
-            <div class="scenario-description">Explore how digital library data can be stored and queried in Cassandra NoSQL database.</div>
+            <div class="scenario-description">Explore how time series data can be stored and queried in Cassandra NoSQL database.</div>
             <ul>
               <li><span class="scenario-description-attribute">Difficulty</span>: Beginner</li>
               <li><span class="scenario-description-attribute">Time</span>: 15 minutes</li>
-              <li><span class="scenario-description-attribute">Prerequisite</span>: <a href="https://www.datastax.com/learn/data-modeling-by-example/digital-library-data-model" target="_blank">how to create a data model for a digital music library</a></li>
+              <li><span class="scenario-description-attribute">Prerequisite</span>: <a href="https://www.datastax.com/learn/data-modeling-by-example/time-series-model" target="_blank">how to create a data model for time series data</a></li>
             </ul>
             <div class="scenario-objectives">In this scenario, you will:</div>
             <ul>
-              <li><span class="scenario-objective">Create tables for a digital library data use case</span></li>
-              <li><span class="scenario-objective">Populate tables with sample digital library data</span></li>
-              <li><span class="scenario-objective">Design and execute CQL queries over digital library data</span></li>
+              <li><span class="scenario-objective">Create tables for a time series use case</span></li>
+              <li><span class="scenario-objective">Populate tables with sample time series data</span></li>
+              <li><span class="scenario-objective">Design and execute CQL queries over time series data</span></li>
             </ul>
       </div>
      </div>
