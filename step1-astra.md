@@ -41,23 +41,16 @@ astra db list
 
 ✅ Create database `data-modeling` and keyspace `time_series` if they do not exist:
 ```
-astra db create data-modeling -k time_series --if-not-exist
+astra db create data-modeling -k time_series --if-not-exist --wait
 ```
 
-✅ Check the status of database `data-modeling`:
+This operation may take a minute or two if you are creating a new database or if your existing database is resuming from hibernation.
+
+✅ Get information about database `data-modeling` and verify that `time_series` exists:
 ```
 astra db get data-modeling
 ```
 
-✅ If database `data-modeling` exists and has status `HIBERNATED`, resume the database:
-```
-astra db resume data-modeling
-```
-
-✅ If database `data-modeling` has status `RESUMING`, `MAINTENANCE` or `PENDING`, **wait until the status becomes `ACTIVE`**:
-```
-astra db get data-modeling
-```
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
