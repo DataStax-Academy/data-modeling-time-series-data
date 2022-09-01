@@ -20,87 +20,80 @@
 
 <div class="step-title">Create tables</div>
 
-✅ Create tables `performers`, `albums_by_performer`, `albums_by_title`, 
-`albums_by_genre`, `tracks_by_title`, `tracks_by_album`, `users` and `tracks_by_user`:
+✅ Create tables `sources_by_group`, `metrics`, `series_by_source_high`, 
+`series_by_source_low`, `series_by_metric_high`, `series_by_metric_low` and `statistics_by_source_metric`:
 ```
-astra db cqlsh data-modeling -k music_data -e "
+astra db cqlsh data-modeling -k time_series -e "
 
-CREATE TABLE IF NOT EXISTS performers (
-  name TEXT,
-  type TEXT,
-  country TEXT,
-  born INT,
-  died INT,
-  founded INT,
-  PRIMARY KEY ((name))
+CREATE TABLE IF NOT EXISTS sources_by_group (
+  group TEXT,
+  source TEXT,
+  characteristics MAP<TEXT,TEXT>,
+  description TEXT STATIC,
+  PRIMARY KEY ((group), source)
 );
 
-CREATE TABLE IF NOT EXISTS albums_by_performer (
-  performer TEXT,
-  year INT,
-  title TEXT,
-  genre TEXT,
-  PRIMARY KEY ((performer),year,title)
-) WITH CLUSTERING ORDER BY (year DESC, title ASC);
-
-CREATE TABLE IF NOT EXISTS albums_by_title (
-  title TEXT,
-  year INT,
-  performer TEXT,
-  genre TEXT,
-  PRIMARY KEY ((title),year)
-) WITH CLUSTERING ORDER BY (year DESC);
-
-CREATE TABLE IF NOT EXISTS albums_by_genre (
-  genre TEXT,
-  year INT,
-  title TEXT,
-  performer TEXT,
-  PRIMARY KEY ((genre),year,title)
-) WITH CLUSTERING ORDER BY (year DESC, title ASC);
-
-CREATE TABLE IF NOT EXISTS tracks_by_title (
-  title TEXT,
-  album_year INT,
-  album_title TEXT,
-  number INT,
-  length INT,
-  genre TEXT,
-  PRIMARY KEY ((title),album_year,album_title,number)
-) WITH CLUSTERING ORDER BY (album_year DESC, album_title ASC, number ASC);
-
-CREATE TABLE IF NOT EXISTS tracks_by_album (
-  album_title TEXT,
-  album_year INT,
-  number INT,
-  title TEXT,
-  length INT,
-  genre TEXT STATIC,
-  PRIMARY KEY ((album_title,album_year),number)
+CREATE TABLE IF NOT EXISTS metrics (
+  bucket TEXT,
+  metric TEXT,
+  unit TEXT,
+  PRIMARY KEY ((bucket), metric)
 );
 
-CREATE TABLE IF NOT EXISTS users (
-  id UUID,
-  name TEXT,
-  PRIMARY KEY ((id))
-);
-
-CREATE TABLE IF NOT EXISTS tracks_by_user (
-  id UUID,
-  month DATE,
+CREATE TABLE IF NOT EXISTS series_by_source_high (
+  group TEXT,
+  source TEXT,
   timestamp TIMESTAMP,
-  album_title TEXT,
-  album_year INT,
-  number INT,
-  title TEXT,
-  length INT,
-  PRIMARY KEY ((id,month),timestamp,album_title,album_year,number)
-) WITH CLUSTERING ORDER BY (timestamp DESC, album_title ASC, album_year ASC, number ASC);"
+  metric TEXT,
+  value DECIMAL,
+  PRIMARY KEY ((group, source), timestamp, metric)
+) WITH CLUSTERING ORDER BY (timestamp DESC, metric ASC);
+
+CREATE TABLE IF NOT EXISTS series_by_source_low (
+  group TEXT,
+  year INT,
+  source TEXT,
+  timestamp TIMESTAMP,
+  metric TEXT,
+  value DECIMAL,
+  PRIMARY KEY ((group, year), source, timestamp, metric)
+) WITH CLUSTERING ORDER BY (source ASC, timestamp DESC, metric ASC);
+
+CREATE TABLE IF NOT EXISTS series_by_metric_high (
+  group TEXT,
+  metric TEXT,  
+  timestamp TIMESTAMP,
+  source TEXT,
+  value DECIMAL,
+  PRIMARY KEY ((group, metric), timestamp, source)
+) WITH CLUSTERING ORDER BY (timestamp DESC, source ASC);
+
+CREATE TABLE IF NOT EXISTS series_by_metric_low (
+  group TEXT,
+  year INT,
+  metric TEXT,  
+  timestamp TIMESTAMP,
+  source TEXT,
+  value DECIMAL,
+  PRIMARY KEY ((group, year, metric), timestamp, source)
+) WITH CLUSTERING ORDER BY (timestamp DESC, source ASC);
+
+CREATE TABLE IF NOT EXISTS statistics_by_source_metric (
+  source TEXT,
+  metric TEXT,
+  date DATE,
+  min DECIMAL,
+  max DECIMAL,
+  median DECIMAL,
+  mean DECIMAL,
+  stdev DECIMAL,       
+  PRIMARY KEY ((source,metric),date)
+) WITH CLUSTERING ORDER BY (date DESC);"
 ```
 
-✅ Verify that the eight tables have been created:
+✅ Verify that the seven tables have been created:
 ```
-astra db cqlsh data-modeling -k music_data -e "DESCRIBE TABLES;"
+astra db cqlsh data-modeling -k time_series -e "DESCRIBE TABLES;"
 ```
 
 <!-- NAVIGATION -->

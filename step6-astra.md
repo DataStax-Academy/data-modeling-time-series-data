@@ -20,15 +20,15 @@
 
 <div class="step-title">Design query Q2</div>
 
-✅ Find albums of performer `The Beatles`; order by year (desc):
+✅ Find information about all metrics stored in bucket `all`; order by metric name (asc):
 
 <details>
   <summary>Solution</summary>
 
 ```
 SELECT * 
-FROM albums_by_performer 
-WHERE performer = 'The Beatles';
+FROM time_series.metrics
+WHERE bucket = 'all';
 ```
 
 </details>

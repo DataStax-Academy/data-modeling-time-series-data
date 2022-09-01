@@ -39,9 +39,9 @@ astra setup
 astra db list
 ```
 
-✅ Create database `data-modeling` and keyspace `music_data` if they do not exist:
+✅ Create database `data-modeling` and keyspace `time_series` if they do not exist:
 ```
-astra db create data-modeling -k music_data --if-not-exist
+astra db create data-modeling -k time_series --if-not-exist
 ```
 
 ✅ Check the status of database `data-modeling`:

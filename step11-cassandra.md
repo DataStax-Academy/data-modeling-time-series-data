@@ -20,16 +20,20 @@
 
 <div class="step-title">Design query Q7</div>
 
-✅ Find tracks from album `Magical Mystery Tour` of `1967`; order by track number (asc):
+✅ Find daily min, max, median, mean and standard deviation values for 
+a time series with source `Termostate A2`, metric `humidity` and 
+date range [`2019-12-25`,`2020-01-07`]; order by date (desc):
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT *
-FROM tracks_by_album
-WHERE album_title = 'Magical Mystery Tour'
-  AND album_year  = 1967; 
+SELECT * 
+FROM time_series.statistics_by_source_metric
+WHERE source = 'Termostate A2'
+  AND metric = 'humidity'
+  AND date >= '2019-12-25'
+  AND date <= '2020-01-07';
 ```
 
 </details>

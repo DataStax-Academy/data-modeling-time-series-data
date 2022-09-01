@@ -20,83 +20,98 @@
 
 <div class="step-title">Populate tables using DSBulk</div>
 
-✅ Load data into table `performers`:
+✅ Load data into table `sources_by_group`:
 ```
 astra db dsbulk data-modeling load      \
-            -url assets/performers.csv  \
-            -k music_data               \
-            -t performers               \
+            -url assets/sources.csv     \
+            -k time_series              \
+            -t sources_by_group         \
             -header true                \
             -logDir /tmp/logs
 ```
 
-✅ Retrieve some rows from table `performers`:
+✅ Retrieve rows from table `sources_by_group`:
 ```
-astra db cqlsh data-modeling -e "SELECT * FROM music_data.performers LIMIT 10;"      
+astra db cqlsh data-modeling -e "
+SELECT group, source, description, 
+       characteristics['Model number'] 
+FROM time_series.sources_by_group;"      
 ```
 
-✅ Load data into tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
+✅ Load data into table `metrics`:
 ```
 astra db dsbulk data-modeling load      \
-            -url assets/albums.csv      \
-            -k music_data               \
-            -t albums_by_performer      \
-            -header true                \
-            -logDir /tmp/logs
-
-astra db dsbulk data-modeling load      \
-            -url assets/albums.csv      \
-            -k music_data               \
-            -t albums_by_title          \
-            -header true                \
-            -logDir /tmp/logs
-
-astra db dsbulk data-modeling load      \
-            -url assets/albums.csv      \
-            -k music_data               \
-            -t albums_by_genre          \
+            -url assets/metrics.csv     \
+            -k time_series              \
+            -t metrics                  \
             -header true                \
             -logDir /tmp/logs
 ```
 
-✅ Retrieve some rows from tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
+✅ Retrieve rows from table `metrics`:
 ```
-astra db cqlsh data-modeling -e "SELECT * FROM music_data.albums_by_performer LIMIT 5;"   
-astra db cqlsh data-modeling -e "SELECT * FROM music_data.albums_by_title LIMIT 5;"   
-astra db cqlsh data-modeling -e "SELECT * FROM music_data.albums_by_genre LIMIT 5;"                                       
+astra db cqlsh data-modeling -e "SELECT * FROM time_series.metrics;"      
 ```
 
-✅ Load data into tables `tracks_by_title` and `tracks_by_album`:
+✅ Load data into tables `series_by_source_high` and `series_by_metric_high`:
 ```
-astra db dsbulk data-modeling load      \
-            -url assets/tracks.csv      \
-            -k music_data               \
-            -t tracks_by_title          \
-            -header true                \
-            -m "0=album_title,          \
-                1=album_year,           \
-                2=genre,                \
-                3=number,               \
-                4=title"                \
+astra db dsbulk data-modeling load                  \
+            -url assets/series_high_resolution.csv  \
+            -k time_series                          \
+            -t series_by_source_high                \
+            -header true                            \
             -logDir /tmp/logs
 
-astra db dsbulk data-modeling load      \
-            -url assets/tracks.csv      \
-            -k music_data               \
-            -t tracks_by_album          \
-            -header true                \
-            -m "0=album_title,          \
-                1=album_year,           \
-                2=genre,                \
-                3=number,               \
-                4=title"                \
+astra db dsbulk data-modeling load                  \
+            -url assets/series_high_resolution.csv  \
+            -k time_series                          \
+            -t series_by_metric_high                \
+            -header true                            \
+            -logDir /tmp/logs                        
+```
+
+✅ Retrieve rows from tables `series_by_source_high` and `series_by_metric_high`:
+```
+astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_source_high LIMIT 5;"   
+astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_metric_high LIMIT 5;"                                         
+```
+
+✅ Load data into tables `series_by_source_low` and `series_by_metric_low`:
+```
+astra db dsbulk data-modeling load                  \
+            -url assets/series_low_resolution.csv   \
+            -k time_series                          \
+            -t series_by_source_low                 \
+            -header true                            \
+            -logDir /tmp/logs
+
+astra db dsbulk data-modeling load                  \
+            -url assets/series_low_resolution.csv   \
+            -k time_series                          \
+            -t series_by_metric_low                 \
+            -header true                            \
             -logDir /tmp/logs
 ```
 
-✅ Retrieve some rows from tables `tracks_by_title` and `tracks_by_album`:
+✅ Retrieve rows from tables `series_by_source_low` and `series_by_metric_low`:
 ```
-astra db cqlsh data-modeling -e "SELECT * FROM music_data.tracks_by_title LIMIT 5;"   
-astra db cqlsh data-modeling -e "SELECT * FROM music_data.tracks_by_album LIMIT 5;"      
+astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_source_low LIMIT 5;"   
+astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_metric_low LIMIT 5;"      
+```
+
+✅ Load data into table `statistics_by_source_metric`:
+```
+astra db dsbulk data-modeling load                      \
+            -url assets/statistics_by_source_metric.csv \
+            -k time_series                              \
+            -t statistics_by_source_metric              \
+            -header true                                \
+            -logDir /tmp/logs
+```
+
+✅ Retrieve rows from table `statistics_by_source_metric`:
+```
+astra db cqlsh data-modeling -e "SELECT * FROM time_series.statistics_by_source_metric LIMIT 5;"      
 ```
 
 <!-- NAVIGATION -->

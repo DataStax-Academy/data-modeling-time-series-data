@@ -25,11 +25,11 @@
 ./cassandra
 ```
 
-✅ Create the `music_data` keyspace:
+✅ Create the `time_series` keyspace:
 ```
 cqlsh -e "
 
-CREATE KEYSPACE music_data
+CREATE KEYSPACE time_series
 WITH replication = {
   'class': 'NetworkTopologyStrategy', 
   'DC-Houston': 1 };"
