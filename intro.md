@@ -27,7 +27,7 @@
      </div>
     </div>
     <div class="container px-4 py-2">
-        <div class="scenario-choices">Run this hands-on scenario using Astra DB or Apache Cassandra™:</div><br/>
+        <div class="scenario-choices">Run this hands-on scenario using Astra DB or Apache Cassandra®:</div><br/>
         <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
           <div class="feature col div-choice">
             <div class="logo-astradb">
