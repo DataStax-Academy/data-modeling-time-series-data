@@ -46,7 +46,7 @@ astra db create data-modeling -k time_series --if-not-exist --wait
 
 This operation may take a bit longer when creating a new database or resuming an existing hibernated database.
 
-✅ Get information about database `data-modeling` and verify that keyspace `time_series` exists:
+✅ Verify that database `data-modeling` is `ACTIVE` and keyspace `time_series` exists:
 ```
 astra db get data-modeling
 ```
