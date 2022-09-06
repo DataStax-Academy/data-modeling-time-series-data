@@ -11,5 +11,5 @@ _This scenario is available on our [https://www.datastax.com/learn/data-modeling
 
 ## Start the scenario:
 
-[![Open in KataPod](https://github.com/DataStax-Academy/katapod-shared-assets/blob/main/images/open-in-katapod.png)](https://gitpod.io/#https://github.com/ArtemChebotko/data-modeling-time-series-data/)
+[![Open in KataPod](https://github.com/DataStax-Academy/katapod-shared-assets/blob/main/images/open-in-katapod.png)](https://gitpod.io/#https://github.com/DataStax-Academy/data-modeling-time-series-data/)
 
