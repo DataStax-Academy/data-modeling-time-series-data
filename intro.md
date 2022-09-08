@@ -17,7 +17,7 @@
               <li><span class="scenario-description-attribute">Time</span>: 15 minutes</li>
               <li><span class="scenario-description-attribute">Prerequisite</span>: <a href="https://www.datastax.com/learn/data-modeling-by-example/time-series-model" target="_blank">how to create a data model for time series data</a></li>
             </ul>
-            <div class="scenario-objectives">In this scenario, you will:</div>
+            <div class="scenario-objectives">In this hands-on lab, you will:</div>
             <ul>
               <li><span class="scenario-objective">Create tables for a time series use case</span></li>
               <li><span class="scenario-objective">Populate tables with sample time series data</span></li>
@@ -27,7 +27,7 @@
      </div>
     </div>
     <div class="container px-4 py-2">
-        <div class="scenario-choices">Run this hands-on scenario using Astra DB or Apache Cassandra®:</div><br/>
+        <div class="scenario-choices">Run this hands-on lab using Astra DB or Apache Cassandra®:</div><br/>
         <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
           <div class="feature col div-choice">
             <div class="logo-astradb">

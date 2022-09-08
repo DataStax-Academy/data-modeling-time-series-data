@@ -18,9 +18,9 @@
     <div class="container px-4 py-2">
      <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
       <div class="feature col div-choice">
-        <div class="scenario-completed">Scenario Completed. Congratulations!</div>
+        <div class="scenario-completed">Lab Completed. Congratulations!</div>
         <br/>
-        <div class="scenario-objectives">In this scenario, you explored:</div>
+        <div class="scenario-objectives">In this hands-on lab, you explored:</div>
         <ul>
               <li><span class="scenario-objective">Schema design for a time series use case</span></li>
               <li><span class="scenario-objective">Sample time series data</span></li>
