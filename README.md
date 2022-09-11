@@ -7,7 +7,7 @@
 * Populate tables with sample time series data
 * Design and execute CQL queries over time series data
 
-_This hands-on lab is available on our [https://www.datastax.com/learn/data-modeling-by-example](https://www.datastax.com/learn/data-modeling-by-example) site, where you can find many more resources to help you succeed with Apache Cassandra™._
+_This hands-on lab is available on our [https://www.datastax.com/learn/data-modeling-by-example](https://www.datastax.com/learn/data-modeling-by-example) site, where you can find many more resources to help you succeed with Apache Cassandra®._
 
 ## Start the hands-on lab:
 
