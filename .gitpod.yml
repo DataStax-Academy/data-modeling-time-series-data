@@ -13,8 +13,8 @@ tasks:
       wget -q https://downloads.datastax.com/dsbulk/dsbulk.tar.gz
       tar -xzf dsbulk.tar.gz
       rm dsbulk.tar.gz
-      mv dsbulk* "$HOME/dsbulk"
     command: | 
+      mv dsbulk* "$HOME/dsbulk"
       docker run -p 9042:9042 -d \
                  --name Cassandra \
                  -v ${PWD}/config/cassandra.yaml:/etc/cassandra/cassandra.yaml \
