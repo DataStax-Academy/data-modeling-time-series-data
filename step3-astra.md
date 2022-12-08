@@ -24,7 +24,7 @@
 
 ✅ Load data into table `sources_by_group`:
 ```
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/sources.csv     \
             -k time_series              \
             -t sources_by_group         \
@@ -42,7 +42,7 @@ FROM time_series.sources_by_group;"
 
 ✅ Load data into table `metrics`:
 ```
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/metrics.csv     \
             -k time_series              \
             -t metrics                  \
@@ -57,14 +57,14 @@ astra db cqlsh data-modeling -e "SELECT * FROM time_series.metrics;"
 
 ✅ Load data into tables `series_by_source_high` and `series_by_metric_high`:
 ```
-astra db dsbulk data-modeling load                  \
+astra db load data-modeling                         \
             -url assets/series_high_resolution.csv  \
             -k time_series                          \
             -t series_by_source_high                \
             -header true                            \
             -logDir /tmp/logs
 
-astra db dsbulk data-modeling load                  \
+astra db load data-modeling                         \
             -url assets/series_high_resolution.csv  \
             -k time_series                          \
             -t series_by_metric_high                \
@@ -80,14 +80,14 @@ astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_metric_high
 
 ✅ Load data into tables `series_by_source_low` and `series_by_metric_low`:
 ```
-astra db dsbulk data-modeling load                  \
+astra db load data-modeling                         \
             -url assets/series_low_resolution.csv   \
             -k time_series                          \
             -t series_by_source_low                 \
             -header true                            \
             -logDir /tmp/logs
 
-astra db dsbulk data-modeling load                  \
+astra db load data-modeling                         \
             -url assets/series_low_resolution.csv   \
             -k time_series                          \
             -t series_by_metric_low                 \
@@ -103,7 +103,7 @@ astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_metric_low 
 
 ✅ Load data into table `statistics_by_source_metric`:
 ```
-astra db dsbulk data-modeling load                      \
+astra db load data-modeling                             \
             -url assets/statistics_by_source_metric.csv \
             -k time_series                              \
             -t statistics_by_source_metric              \
