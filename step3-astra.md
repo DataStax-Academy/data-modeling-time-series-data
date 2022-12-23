@@ -26,7 +26,7 @@
 ```
 astra db load data-modeling             \
             -url assets/sources.csv     \
-            -k time_series              \
+            -k time_series_data         \
             -t sources_by_group         \
             -header true                \
             -logDir /tmp/logs
@@ -37,14 +37,14 @@ astra db load data-modeling             \
 astra db cqlsh data-modeling -e "
 SELECT group, source, description, 
        characteristics['Model number'] 
-FROM time_series.sources_by_group;"      
+FROM time_series_data.sources_by_group;"      
 ```
 
 ✅ Load data into table `metrics`:
 ```
 astra db load data-modeling             \
             -url assets/metrics.csv     \
-            -k time_series              \
+            -k time_series_data         \
             -t metrics                  \
             -header true                \
             -logDir /tmp/logs
@@ -52,21 +52,21 @@ astra db load data-modeling             \
 
 ✅ Retrieve rows from table `metrics`:
 ```
-astra db cqlsh data-modeling -e "SELECT * FROM time_series.metrics;"      
+astra db cqlsh data-modeling -e "SELECT * FROM time_series_data.metrics;"      
 ```
 
 ✅ Load data into tables `series_by_source_high` and `series_by_metric_high`:
 ```
 astra db load data-modeling                         \
             -url assets/series_high_resolution.csv  \
-            -k time_series                          \
+            -k time_series_data                     \
             -t series_by_source_high                \
             -header true                            \
             -logDir /tmp/logs
 
 astra db load data-modeling                         \
             -url assets/series_high_resolution.csv  \
-            -k time_series                          \
+            -k time_series_data                     \
             -t series_by_metric_high                \
             -header true                            \
             -logDir /tmp/logs                        
@@ -74,22 +74,22 @@ astra db load data-modeling                         \
 
 ✅ Retrieve rows from tables `series_by_source_high` and `series_by_metric_high`:
 ```
-astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_source_high LIMIT 5;"   
-astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_metric_high LIMIT 5;"                                         
+astra db cqlsh data-modeling -e "SELECT * FROM time_series_data.series_by_source_high LIMIT 5;"   
+astra db cqlsh data-modeling -e "SELECT * FROM time_series_data.series_by_metric_high LIMIT 5;"                                         
 ```
 
 ✅ Load data into tables `series_by_source_low` and `series_by_metric_low`:
 ```
 astra db load data-modeling                         \
             -url assets/series_low_resolution.csv   \
-            -k time_series                          \
+            -k time_series_data                     \
             -t series_by_source_low                 \
             -header true                            \
             -logDir /tmp/logs
 
 astra db load data-modeling                         \
             -url assets/series_low_resolution.csv   \
-            -k time_series                          \
+            -k time_series_data                     \
             -t series_by_metric_low                 \
             -header true                            \
             -logDir /tmp/logs
@@ -97,15 +97,15 @@ astra db load data-modeling                         \
 
 ✅ Retrieve rows from tables `series_by_source_low` and `series_by_metric_low`:
 ```
-astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_source_low LIMIT 5;"   
-astra db cqlsh data-modeling -e "SELECT * FROM time_series.series_by_metric_low LIMIT 5;"      
+astra db cqlsh data-modeling -e "SELECT * FROM time_series_data.series_by_source_low LIMIT 5;"   
+astra db cqlsh data-modeling -e "SELECT * FROM time_series_data.series_by_metric_low LIMIT 5;"      
 ```
 
 ✅ Load data into table `statistics_by_source_metric`:
 ```
 astra db load data-modeling                             \
             -url assets/statistics_by_source_metric.csv \
-            -k time_series                              \
+            -k time_series_data                         \
             -t statistics_by_source_metric              \
             -header true                                \
             -logDir /tmp/logs
@@ -113,7 +113,7 @@ astra db load data-modeling                             \
 
 ✅ Retrieve rows from table `statistics_by_source_metric`:
 ```
-astra db cqlsh data-modeling -e "SELECT * FROM time_series.statistics_by_source_metric LIMIT 5;"      
+astra db cqlsh data-modeling -e "SELECT * FROM time_series_data.statistics_by_source_metric LIMIT 5;"      
 ```
 
 <!-- NAVIGATION -->

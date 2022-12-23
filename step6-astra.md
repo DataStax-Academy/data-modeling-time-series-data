@@ -29,7 +29,7 @@
 
 ```
 SELECT * 
-FROM time_series.metrics
+FROM time_series_data.metrics
 WHERE bucket = 'all';
 ```
 

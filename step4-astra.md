@@ -22,10 +22,10 @@
 
 <div class="step-title">Start the CQL shell</div>
 
-✅ Start the CQL shell and connect to the `time_series` keyspace:
+✅ Start the CQL shell and connect to the `time_series_data` keyspace:
 ```
 clear
-astra db cqlsh data-modeling -k time_series
+astra db cqlsh data-modeling -k time_series_data
 ```
 
 <!-- NAVIGATION -->

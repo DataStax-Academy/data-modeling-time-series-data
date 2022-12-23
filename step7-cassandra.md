@@ -31,7 +31,7 @@ order by timestamp (desc) and metric (asc):
 
 ```
 SELECT * 
-FROM time_series.series_by_source_high
+FROM time_series_data.series_by_source_high
 WHERE group = 'House A'
   AND source IN ('Refrigerator A1','Freezer A1')
   AND timestamp >= '2020-10-05 12:44:00'

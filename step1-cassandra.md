@@ -31,7 +31,7 @@
 ```
 cqlsh -e "
 
-CREATE KEYSPACE time_series
+CREATE KEYSPACE time_series_data
 WITH replication = {
   'class': 'NetworkTopologyStrategy', 
   'DC-Houston': 1 };"

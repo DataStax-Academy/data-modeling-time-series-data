@@ -41,14 +41,14 @@ astra setup
 astra db list
 ```
 
-✅ Create database `data-modeling` and keyspace `time_series` if they do not exist:
+✅ Create database `data-modeling` and keyspace `time_series_data` if they do not exist:
 ```
-astra db create data-modeling -k time_series --if-not-exist --wait
+astra db create data-modeling -k time_series_data --if-not-exist --wait
 ```
 
 This operation may take a bit longer when creating a new database or resuming an existing hibernated database.
 
-✅ Verify that database `data-modeling` is `ACTIVE` and keyspace `time_series` exists:
+✅ Verify that database `data-modeling` is `ACTIVE` and keyspace `time_series_data` exists:
 ```
 astra db get data-modeling
 ```

@@ -25,7 +25,7 @@
 ✅ Create tables `sources_by_group`, `metrics`, `series_by_source_high`, 
 `series_by_source_low`, `series_by_metric_high`, `series_by_metric_low` and `statistics_by_source_metric`:
 ```
-astra db cqlsh data-modeling -k time_series -e "
+astra db cqlsh data-modeling -k time_series_data -e "
 
 CREATE TABLE IF NOT EXISTS sources_by_group (
   group TEXT,
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS statistics_by_source_metric (
 
 ✅ Verify that the seven tables have been created:
 ```
-astra db cqlsh data-modeling -k time_series -e "DESCRIBE TABLES;"
+astra db cqlsh data-modeling -k time_series_data -e "DESCRIBE TABLES;"
 ```
 
 <!-- NAVIGATION -->

@@ -30,7 +30,7 @@
 ```
 SELECT group, source, description, 
        characteristics['Model number'] 
-FROM sources_by_group
+FROM time_series_data.sources_by_group
 WHERE group = 'House A';
 ```
 

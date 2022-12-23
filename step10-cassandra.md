@@ -31,7 +31,7 @@ order by timestamp (desc) and source (asc):
 
 ```
 SELECT * 
-FROM time_series.series_by_metric_low
+FROM time_series_data.series_by_metric_low
 WHERE group = 'House A'
   AND year = 2019
   AND metric = 'temperature'

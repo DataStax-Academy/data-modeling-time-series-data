@@ -27,7 +27,7 @@
 ```
 cqlsh -e "
 
-USE time_series;
+USE time_series_data;
 
 CREATE TABLE IF NOT EXISTS sources_by_group (
   group TEXT,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS statistics_by_source_metric (
 
 ✅ Verify that the seven tables have been created:
 ```
-cqlsh -k time_series -e "DESCRIBE TABLES;"
+cqlsh -k time_series_data -e "DESCRIBE TABLES;"
 ```
 
 <!-- NAVIGATION -->
